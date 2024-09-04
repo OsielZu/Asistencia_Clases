@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Alumnos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Alumnos</h1>
+        <form id="registration-form">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="surname">Apellidos:</label>
+            <input type="text" id="surname" name="surname" required>
+            
+            <label for="grade">Grado:</label>
+            <input type="text" id="grade" name="grade" required>
+            
+            <label for="group">Grupo:</label>
+            <input type="text" id="group" name="group" required>
+            
+            <label for="student-number">Número de Estudiante:</label>
+            <input type="text" id="student-number" name="student-number" required>
+            
+            <label for="photo">Foto:</label>
+            <input type="file" id="photo" name="photo" accept="image/*">
+            
+            <button type="button" onclick="showConfirmation()">Generar Tarjeta</button>
+            <button type="button" onclick="clearForm()">Limpiar Datos</button>
+        </form>
+        <div id="card-container"></div>
+        <button id="download-btn" style="display:none;" onclick="downloadCard()">Descargar Tarjeta</button>
+    </div>
+
+    <!-- Pop-up de Advertencia -->
+    <div id="warning-popup" class="popup">
+        <div class="popup-content">
+            <h2>Advertencia</h2>
+            <p>Por favor, asegúrate de que todos los datos sean correctos. Si la tarjeta se extravía, se generará una nueva con los mismos datos. ¿Deseas continuar?</p>
+            <button onclick="generateCard()">Sí, continuar</button>
+            <button onclick="closePopup()">No, cancelar</button>
+        </div>
+    </div>
+
+    <!-- Pop-up de Error -->
+    <div id="error-popup">
+        <div class="error-popup-content">
+            <h2>Error</h2>
+            <p>Por favor, complete todos los campos.</p>
+            <button onclick="closeErrorPopup()">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
